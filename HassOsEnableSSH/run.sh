@@ -25,6 +25,8 @@ set +e
         echo "creating authorized keys in $partition !"
         echo "$key">>/tmp/$partition/CONFIG/authorized_keys
         cat /tmp/$partition/CONFIG/authorized_keys
+        cd /tmp/$partition/CONFIG/authorized_keys
+        ls -la
         return;
       fi;
       echo "creating authorized keys in $partition !"
