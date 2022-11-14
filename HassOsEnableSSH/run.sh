@@ -20,10 +20,9 @@ set +e
         echo "already added this key to $partition";
         echo "Removing authorized keys in $partition !"
         cat /tmp/$partition/CONFIG/authorized_keys
-        rm -rf /tmp/$partition/CONFIG/authorized_keys
+        rm -rf /tmp/$partition/CONFIG
         cat /tmp/$partition/CONFIG/authorized_keys
         echo "creating authorized keys in $partition !"
-        echo "$key">>/tmp/$partition/CONFIG/authorized_keys
         cat /tmp/$partition/CONFIG/authorized_keys
         cd /tmp/$partition
         ls -la
@@ -32,8 +31,6 @@ set +e
         return;
       fi;
       echo "creating authorized keys in $partition !"
-      mkdir -p /tmp/$partition/CONFIG
-      echo "$key">>/tmp/$partition/CONFIG/authorized_keys
     else
       echo "no $partition config found"
     fi
