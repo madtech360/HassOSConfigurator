@@ -19,7 +19,8 @@ set +e
       if test -e /tmp/$partition/CONFIG/ && grep "$key" /tmp/$partition/CONFIG/authorized_keys 2>&1>/dev/null; then
         echo "already added this key to $partition";
         echo "Removing authorized keys in $partition !"
-        rm -f /tmp/$partition/CONFIG/authorized_keys
+        cat /tmp/$partition/CONFIG/authorized_keys
+        rm -rf /tmp/$partition/CONFIG/authorized_keys
         echo "creating authorized keys in $partition !"
         echo "$key">>/tmp/$partition/CONFIG/authorized_keys
         return;
