@@ -21,8 +21,10 @@ set +e
         echo "Removing authorized keys in $partition !"
         cat /tmp/$partition/CONFIG/authorized_keys
         rm -rf /tmp/$partition/CONFIG/authorized_keys
+        cat /tmp/$partition/CONFIG/authorized_keys
         echo "creating authorized keys in $partition !"
         echo "$key">>/tmp/$partition/CONFIG/authorized_keys
+        cat /tmp/$partition/CONFIG/authorized_keys
         return;
       fi;
       echo "creating authorized keys in $partition !"
